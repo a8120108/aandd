@@ -10,3 +10,18 @@ function show(array) {
     //document.getElementById('res').innerHTML = html;
     document.getElementById('res').insertAdjacentHTML('beforeend', html);
 }
+
+function createSequentialNumbers(array, n) {
+    for (var i = 0; i < n; i++) {
+        array.push(i + 1)
+    }
+}
+
+
+function createRandomNumbers(array, n) {
+    for (var i = 0; i < n; i++) {
+        a = Math.floor(Math.random() * 100)
+        array.push(a)
+    }
+}
+
