@@ -25,3 +25,10 @@ function createRandomNumbers(array, n) {
     }
 }
 
+function createRandomNumbersfor20(array, n) {
+    for (var i = 0; i < n; i++) {
+        var a = Math.floor(Math.random() * 21)
+        array.push(a)
+    }
+}
+

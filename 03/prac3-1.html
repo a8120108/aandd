@@ -10,10 +10,59 @@
 
     <script>
         function runButtonPressed() {
+            var numbers = [];
+            var numberss = [];
+            createSequentialNumbers(numbers, 10);
+            show(numbers);
             //prac3-1 10個の乱数の合計を求める（繰り返しで）
+            var total = 0;
+            for (var i = 0; i < numbers.length; i++) {
+                total = total + numbers[i];
+            }
+            show(total);
             //prac3-2 10個の乱数の平均を求める
+            var total = 0;
+            for (var i = 0; i < numbers.length; i++) {
+                total = total + numbers[i];
+            }
+            total = total / i;
+            show(total);
             //prac3-3 10個の乱数の最大値を求める
+            createRandomNumbersfor20(numberss, 10);
+            num = numberss[0]
+            for (var i = 0; i < numberss.length; i++) {
+                if (num > numberss[i]) {
+                    num = numberss[i]
+                }
+            }
+            show(numberss);
+            show(num)
             //prac3-4 10個の乱数の最小値を求める
+            num = numberss[0]
+            for (var i = 0; i < numberss.length; i++) {
+                if (num < numberss[i]) {
+                    num = numberss[i]
+                }
+            }
+            show(num)
+        }
+        function show(obj) {
+            if (Array.isArray(obj)) {
+                var html = '';
+                html = html + '<table border="1">';
+                html = html + '<tr>';
+                for (var i = 0; i < obj.length; i++) {
+                    html = html + '<td>' + obj[i] + '</td>';
+                }
+                html = html + '</tr>';
+                html = html + '</table>';
+                //html = html + '<br>';
+                document.getElementById('res').insertAdjacentHTML('beforeend', html);
+            } else {
+                var string = JSON.stringify(obj);
+                string = string + '<br>';
+                document.getElementById('res').insertAdjacentHTML('beforeend', string);
+            }
         }
     </script>
 
