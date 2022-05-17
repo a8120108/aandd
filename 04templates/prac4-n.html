@@ -81,7 +81,7 @@
 
         function BinarySearch(numbers, n, m) {
             var a = Math.round(numbers.length / 2) - 1;
-            for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)) + 1; i++) {
+            for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)); i++) {
                 if (numbers[a] > n) {
                     if (a == 1) {
                         a = 0
@@ -96,7 +96,7 @@
                     break;
                 }
             }
-            if (i == Math.floor(Math.sqrt(numbers.length)) + 1) {
+            if (i == Math.floor(Math.sqrt(numbers.length))) {
                 show("見つかりませんでした")
             }
         }
