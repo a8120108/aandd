@@ -13,6 +13,8 @@
             var numbers = [];
             ShojunNumbers(numbers, 10);
             show(numbers);
+            SumNumbers(numbers, 2);
+            show(numbers);
         }
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
@@ -42,6 +44,13 @@
                 a = a + Math.floor(Math.random() * 5) + 1
                 numbers.push(a);
             }
+        }
+
+        function SumNumbers(numbers, n) {
+            for (var i = 0; i < numbers.length; i++) {
+                numbers[i] = numbers[i] + n;
+            }
+
         }
     </script>
 
