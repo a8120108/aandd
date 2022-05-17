@@ -20,6 +20,7 @@
             ExtractN(NPlusNumbers, numbers, 10);
             show(NPlusNumbers);
             Linear(numbers, n)
+            BinarySearch(numbers, n)
         }
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
@@ -70,7 +71,33 @@
                 if (numbers[i] == n) {
                     var ans = numbers[i];
                     show(i)
+                    break;
                 }
+                if (i == numbers.length - 1) {
+                    show("見つかりませんでした")
+                }
+            }
+        }
+
+        function BinarySearch(numbers, n, m) {
+            var a = Math.round(numbers.length / 2) - 1;
+            for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)) + 1; i++) {
+                if (numbers[a] > n) {
+                    if (a == 1) {
+                        a = 0
+                    } else {
+                        a = Math.round(a / 2);
+                    }
+                } else if (numbers[a] < n) {
+                    a = Math.round((numbers.length + a) / 2)
+                } else {
+                    var ans = numbers[a];
+                    show(a)
+                    break;
+                }
+            }
+            if (i == Math.floor(Math.sqrt(numbers.length)) + 1) {
+                show("見つかりませんでした")
             }
         }
     </script>
