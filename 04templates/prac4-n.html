@@ -10,6 +10,7 @@
 
     <script>
         function runButtonPressed() {
+            var n = document.getElementById("num").value;
             var numbers = [];
             var NPlusNumbers = [];
             ShojunNumbers(numbers, 10);
@@ -18,6 +19,7 @@
             show(numbers);
             ExtractN(NPlusNumbers, numbers, 10);
             show(NPlusNumbers);
+            Linear(numbers, n)
         }
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
@@ -62,13 +64,22 @@
                 }
             }
         }
+
+        function Linear(numbers, n) {
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] == n) {
+                    var ans = numbers[i];
+                    show(i)
+                }
+            }
+        }
     </script>
 
 </head>
 
 <body>
     <h1>ex3-1</h1>
-    <button onclick="runButtonPressed()">run!</button>
+    <input id="num" type="number"><button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
 
 
