@@ -83,9 +83,7 @@
         function BinarySearch(numbers, n) {
             var lower = 0;
             var higher = numbers.length - 1
-
             for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)) + 1; i++) {
-
                 var a = Math.round((lower + higher) / 2);
                 if (numbers[a] > n) {
                     higher = a;
