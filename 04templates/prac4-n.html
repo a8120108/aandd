@@ -12,11 +12,12 @@
         function runButtonPressed() {
             var n = document.getElementById("num").value;
             var numbers = [];
+            var NumbersPlusN = [];
             var NPlusNumbers = [];
             ShojunNumbers(numbers, 10);
             show(numbers);
-            SumNumbers(numbers, 2);
-            show(numbers);
+            SumNumbers(NumbersPlusN, numbers, 2);
+            show(NumbersPlusN);
             ExtractN(NPlusNumbers, numbers, 10);
             show(NPlusNumbers);
             Linear(numbers, n)
@@ -52,9 +53,9 @@
             }
         }
 
-        function SumNumbers(numbers, n) {
+        function SumNumbers(NumbersPlusN, numbers, n) {
             for (var i = 0; i < numbers.length; i++) {
-                numbers[i] = numbers[i] + n;
+                NumbersPlusN[i] = numbers[i] + n;
             }
         }
 
@@ -70,7 +71,7 @@
             for (var i = 0; i < numbers.length; i++) {
                 if (numbers[i] == n) {
                     var ans = numbers[i];
-                    show(i)
+                    show("リニアリサーチで求めた結果は" + i + "番地です。")
                     break;
                 }
                 if (i == numbers.length - 1) {
@@ -79,24 +80,24 @@
             }
         }
 
-        function BinarySearch(numbers, n, m) {
-            var a = Math.round(numbers.length / 2) - 1;
-            for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)); i++) {
+        function BinarySearch(numbers, n) {
+            var lower = 0;
+            var higher = numbers.length - 1
+
+            for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)) + 1; i++) {
+
+                var a = Math.round((lower + higher) / 2);
                 if (numbers[a] > n) {
-                    if (a == 1) {
-                        a = 0
-                    } else {
-                        a = Math.round(a / 2);
-                    }
+                    higher = a;
                 } else if (numbers[a] < n) {
-                    a = Math.round((numbers.length + a) / 2)
+                    lower = a;
                 } else {
                     var ans = numbers[a];
-                    show(a)
+                    show("バイナリリサーチで求めた結果は" + a + "番地です。")
                     break;
                 }
             }
-            if (i == Math.floor(Math.sqrt(numbers.length))) {
+            if (i == Math.floor(Math.sqrt(numbers.length)) + 1) {
                 show("見つかりませんでした")
             }
         }
