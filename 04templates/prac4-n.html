@@ -11,10 +11,13 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
+            var NPlusNumbers = [];
             ShojunNumbers(numbers, 10);
             show(numbers);
             SumNumbers(numbers, 2);
             show(numbers);
+            ExtractN(NPlusNumbers, numbers, 10);
+            show(NPlusNumbers);
         }
 
         //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
@@ -50,7 +53,14 @@
             for (var i = 0; i < numbers.length; i++) {
                 numbers[i] = numbers[i] + n;
             }
+        }
 
+        function ExtractN(NPlusNumbers, numbers, n) {
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] >= n) {
+                    NPlusNumbers.push(numbers[i])
+                }
+            }
         }
     </script>
 
