@@ -83,12 +83,14 @@
         function BinarySearch(numbers, n) {
             var lower = 0;
             var higher = numbers.length - 1
+            var a = Math.round((lower + higher) / 2);
             for (var i = 0; i < Math.floor(Math.sqrt(numbers.length)) + 1; i++) {
-                var a = Math.round((lower + higher) / 2);
                 if (numbers[a] > n) {
                     higher = a;
+                    a = Math.floor((lower + higher) / 2);
                 } else if (numbers[a] < n) {
                     lower = a;
+                    a = Math.round((lower + higher) / 2);
                 } else {
                     var ans = numbers[a];
                     show("バイナリリサーチで求めた結果は" + a + "番地です。")
