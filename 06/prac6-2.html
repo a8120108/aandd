@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var text = document.getElementById('tf1').value;
+            var chars = text.split('');
+            console.log(chars);
+            var array = []
+            console.log(chars.length)
+            for (var i = 0; i <= chars.length + 3; i++) {
+                var a = chars.pop()
+                array.push(a)
+            }
+            var array2 = array.join('')
+            if (text == array2) {
+                show("OK")
+            } else {
+                show("違います")
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>スタック</h1>
+    <input id="tf1" type="text" value="こんにちは">
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+</body>
+
+</html>
