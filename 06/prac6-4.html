@@ -31,15 +31,14 @@
 
                 var chars = text.split('');
                 var array = []
-                for (var i = 0; i <= chars.length + 3; i++) {
+                var Length = chars.length
+                for (var i = 0; i <= Length; i++) {
                     var a = chars.pop()
                     array.push(a)
                 }
                 var array2 = array.join('')
                 if (text == array2) {
                     show(h + "回目に実行された" + text + "は回文です。")
-                    show(noun)
-                    show(verb)
 
                 }
             }
