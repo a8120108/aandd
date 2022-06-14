@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script type="text/javascript" src="nouns.js"></script>
+    <script type="text/javascript" src="verbs.js"></script>
+
+    <script>
+
+        var nouns;
+        var verbs;
+
+        $(document).ready(function () {
+            nouns = nounstext.split('\n');
+            verbs = verbstext.split('\n')
+        });
+
+        function runButtonPressed() {
+            var array = []
+            for (var h = 1; h < 1000000; h++) {
+                var noun = selectone(nouns);
+                var verb = selectone(verbs);
+                var text = noun + verb
+
+
+                var chars = text.split('');
+                var array = []
+                for (var i = 0; i <= chars.length + 3; i++) {
+                    var a = chars.pop()
+                    array.push(a)
+                }
+                var array2 = array.join('')
+                if (text == array2) {
+                    show(h + "回目に実行された" + text + "は回文です。")
+                    show(noun)
+                    show(verb)
+
+                }
+            }
+        }
+
+        function selectone(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>読み込み，選ぶ</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+
+</body>
+
+</html>
